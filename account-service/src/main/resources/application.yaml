@@ -4,9 +4,11 @@ spring:
   application:
     name: account-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/payments
-    username: payments
-    password: payments
+    url: jdbc:postgresql://localhost:5432/postgres
+    schema: public
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 12345678
   jpa:
     hibernate.ddl-auto: validate
     show-sql: false

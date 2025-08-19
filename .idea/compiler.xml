@@ -23,6 +23,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin-service" options="-parameters" />
+      <module name="common-model" options="" />
+      <module name="common-security" options="" />
       <module name="frontend" options="-parameters" />
       <module name="ledger-service" options="-parameters" />
       <module name="notification-service" options="-parameters" />

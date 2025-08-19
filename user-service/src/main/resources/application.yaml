@@ -2,14 +2,31 @@ server:
   port: 8081
 spring:
   application:
-    name: user-service
+    name: user-service\
+  #autoconfigure:
+  #  exclude: org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/payments
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/payments
-    username: payments
-    password: payments
+    url: jdbc:postgresql://localhost:5432/postgres
+    schema: public
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 12345678
   jpa:
     hibernate.ddl-auto: validate
     show-sql: false
+
+   # will point to Keycloak later
+
+dev:
+  security:
+    disabled: true
+
 management:
   endpoints:
     web:
