@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16
+    container_name: payments_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: payments
+      POSTGRES_PASSWORD: payments
+      POSTGRES_DB: payments
+      TZ: Asia/Kolkata        # ✅ correct timezone
+      PGTZ: Asia/Kolkata      # ✅ Postgres timezone
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: payments_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@payments.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+#points to remember
+ #1. add -Duser.timezone=Asia/Kolkata in vm option if get error after start
+ #2. to see db login to http://localhost:5050 on browser when container is running
+ #3. use credentials: given in this file pgadmin section(email & password)
+ #4. create new server there add (schema will be automatially created as public & database will be payments)
+ #   - name: payments
+ #   - host: postgres
+ #   - port: 5432
+ #   - username: payments
+ #   - password: payments
