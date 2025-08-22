@@ -3,14 +3,13 @@ server:
 spring:
   application:
     name: user-service\
-  #autoconfigure:
-  #  exclude: org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/payments
-
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
   datasource:
     url: jdbc:postgresql://localhost:5432/payments   #?options=-c%20TimeZone=Asia/Kolkata
     schema: public
@@ -18,14 +17,12 @@ spring:
     username: payments
     password: payments
   jpa:
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: none #as we are using liquibase
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        #format_sql: true
 
-   # will point to Keycloak later
 
 dev:
   security:
