@@ -28,7 +28,7 @@
       - docker exec -t payments_postgres pg_dump -U payments payments > payments_dump.sql -> for db table storing data in file
       - psql -U payments -d payments < payments_dump.sql  -> for restoring db table from file
       
-3. Creating Keycloak
+3. Creating Keycloak(not implemented)
    1. update docker-compose file with keycloak section
    2. open browser http://localhost:8080 LOGIN with admin/admin
    3. create realm, client, roles, users in keycloak

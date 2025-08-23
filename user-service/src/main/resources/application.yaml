@@ -3,11 +3,11 @@ server:
 spring:
   application:
     name: user-service\
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/payments
+  #security:
+  #  oauth2:
+  #    resourceserver:
+  #      jwt:
+  #        issuer-uri: http://localhost:8080/realms/payments
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
   datasource:
