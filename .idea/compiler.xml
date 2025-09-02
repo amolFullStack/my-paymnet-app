@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,6 +10,7 @@
         <module name="common-security" />
         <module name="payment-service" />
         <module name="common-model" />
+        <module name="balance-service" />
         <module name="ledger-service" />
         <module name="payment-orchestrator" />
         <module name="user-service" />
@@ -23,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin-service" options="-parameters" />
+      <module name="balance-service" options="" />
       <module name="common-model" options="" />
       <module name="common-security" options="" />
       <module name="frontend" options="-parameters" />

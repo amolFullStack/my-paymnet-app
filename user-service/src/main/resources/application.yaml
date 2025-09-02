@@ -10,6 +10,7 @@ spring:
   #        issuer-uri: http://localhost:8080/realms/payments
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
+
   datasource:
     url: jdbc:postgresql://localhost:5432/payments   #?options=-c%20TimeZone=Asia/Kolkata
     schema: public
@@ -26,7 +27,7 @@ spring:
 
 dev:
   security:
-    disabled: true
+    disabled: false
 
 management:
   endpoints:

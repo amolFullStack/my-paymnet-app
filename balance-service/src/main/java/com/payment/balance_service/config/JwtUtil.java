@@ -1,4 +1,4 @@
-package com.payment.user_service.config;
+package com.payment.balance_service.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -13,7 +13,6 @@ public class JwtUtil {
     // ✅ Use secure 256-bit key
     private static final String SECRET = "my-very-secure-256-bit-secret-key-that-is-same-for-all-services";
     private static final Key SECRET_KEY = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
-    //private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hour
 
     public static String generateToken(String username) {

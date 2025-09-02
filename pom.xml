@@ -44,6 +44,7 @@
         <module>notification-service</module>
         <module>admin-service</module>
         <module>frontend</module>
+        <module>balance-service</module>
     </modules>
 
     <build>
