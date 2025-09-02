@@ -1,5 +1,6 @@
 package com.payment.account_service.service;
 
+import com.payment.account_service.client.BalanceClient;
 import com.payment.account_service.model.Account;
 import com.payment.account_service.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import java.util.UUID;
 public class AccountService {
 
     private final AccountRepository accountRepository;
+    private final BalanceClient balanceClient;
 
     public Account createAccount(Long userId) {
         Account account = new Account();
@@ -21,7 +23,10 @@ public class AccountService {
         account.setAccountNumber(UUID.randomUUID().toString()); // simple account number
         account.setCreatedAt(LocalDateTime.now());
         account.setStatus("ACTIVE");
-        return accountRepository.save(account);
+        Account savedAccount = accountRepository.save(account);
+        // 🚀 Call Balance Service to init balance
+        balanceClient.initializeBalance(savedAccount.getId());
+        return savedAccount;
     }
 
     public Account getAccountByUserId(Long userId) {

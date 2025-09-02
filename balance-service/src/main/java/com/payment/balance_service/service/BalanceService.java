@@ -28,5 +28,13 @@ public class BalanceService {
         balance.setLastUpdated(LocalDateTime.now());
         return balanceRepository.save(balance);
     }
+
+    public Balance initiateBalance(Long accountId){
+        Balance balance = new Balance();
+        balance.setAccountId(accountId);
+        balance.setBalance(BigDecimal.ZERO);
+        balance.setLastUpdated(LocalDateTime.now());
+        return balanceRepository.save(balance);
+    }
 }
 

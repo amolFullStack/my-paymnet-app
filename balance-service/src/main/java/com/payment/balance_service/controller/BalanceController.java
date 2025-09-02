@@ -23,4 +23,8 @@ public class BalanceController {
                                  @RequestParam("amount") BigDecimal amount) {
         return balanceService.updateBalance(accountId, amount);
     }
+    @PostMapping("/init")
+    public void initializeBalance(@RequestParam("accountId") Long accountId) {
+        Balance balance = balanceService.initiateBalance(accountId);
+    }
 }

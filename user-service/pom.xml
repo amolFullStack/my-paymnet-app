@@ -14,6 +14,7 @@
         <!--Junit Testing-->
         <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.10.2</version><scope>test</scope></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>org.projectlombok</groupId><artifactId>lombok</artifactId><scope>provided</scope></dependency>
         <!--Common imported modules -->
         <dependency><groupId>com.payment</groupId><artifactId>common-model</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.payment</groupId><artifactId>common-security</artifactId><version>${project.version}</version></dependency>
@@ -21,6 +22,8 @@
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>
         <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId></dependency>
         <dependency><groupId>org.liquibase</groupId><artifactId>liquibase-core</artifactId></dependency>
+        <!--Feign-client-->
+        <dependency><groupId>org.springframework.cloud</groupId><artifactId>spring-cloud-starter-openfeign</artifactId></dependency>
         <!--Spring Boot Security-->
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-security</artifactId></dependency>
         <dependency><groupId>io.jsonwebtoken</groupId><artifactId>jjwt-api</artifactId><version>0.11.5</version></dependency>
