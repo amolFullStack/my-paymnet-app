@@ -8,17 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common-security" />
-        <module name="payment-service" />
-        <module name="common-model" />
         <module name="balance-service" />
         <module name="ledger-service" />
         <module name="payment-orchestrator" />
         <module name="user-service" />
+        <module name="notification-service" />
+        <module name="payment-service" />
+        <module name="common-model" />
+        <module name="transaction-service" />
         <module name="account-service" />
         <module name="admin-service" />
         <module name="frontend" />
         <module name="gateway" />
-        <module name="notification-service" />
       </profile>
     </annotationProcessing>
   </component>
