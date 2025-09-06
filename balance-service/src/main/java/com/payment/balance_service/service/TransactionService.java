@@ -1,3 +1,4 @@
+/*
 package com.payment.balance_service.service;
 
 import com.payment.balance_service.model.Balance;
@@ -55,3 +56,4 @@ public class TransactionService {
         return transactionRepository.findByAccountId(accountId);
     }
 }
+*/

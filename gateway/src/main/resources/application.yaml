@@ -1,14 +1,49 @@
 server:
   port: 8080
+
 spring:
   application:
-    name: gateway
+    name: gateway-service
+
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
       default-filters:
-        - RemoveHopByHopHeaders=
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus
+        - PreserveHostHeader
+        - RemoveRequestHeader=Cookie
+        - AddRequestHeader=X-Request-Source, Gateway
+
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/accounts/**
+        - id: balance-service
+          uri: lb://balance-service
+          predicates:
+            - Path=/balances/**
+        - id: transaction-service
+          uri: lb://transaction-service
+          predicates:
+            - Path=/transactions/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+
+jwt:
+  secret: mysecretkey12345   # ⚠️ keep this same across services if they also validate JWT

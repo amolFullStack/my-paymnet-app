@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: user-service\
+    name: user-service
   #security:
   #  oauth2:
   #    resourceserver:
@@ -34,3 +34,14 @@ management:
     web:
       exposure:
         include: health,info,prometheus
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    org.springframework.security: DEBUG

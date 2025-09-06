@@ -13,6 +13,7 @@
         <module name="payment-orchestrator" />
         <module name="user-service" />
         <module name="notification-service" />
+        <module name="Eureka-server" />
         <module name="payment-service" />
         <module name="common-model" />
         <module name="transaction-service" />
@@ -25,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka-server" options="" />
       <module name="admin-service" options="-parameters" />
       <module name="balance-service" options="" />
       <module name="common-model" options="" />

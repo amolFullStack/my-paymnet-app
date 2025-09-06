@@ -1,3 +1,4 @@
+/*
 package com.payment.balance_service.model;
 
 import jakarta.persistence.*;
@@ -38,3 +39,4 @@ public class Transaction {
 }
 
 
+*/

@@ -1,0 +1,4 @@
+com\payment\common_model\UserDto.class
+com\payment\common_model\PaymentDto.class
+com\payment\common_model\AccountDto.class
+com\payment\common_model\ApiError.class

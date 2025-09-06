@@ -1,3 +1,4 @@
+/*
 package com.payment.balance_service.repository;
 
 import com.payment.balance_service.model.Transaction;
@@ -9,3 +10,4 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 }
 
 
+*/

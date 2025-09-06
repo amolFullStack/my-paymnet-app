@@ -2,6 +2,7 @@ package com.payment.balance_service.service;
 
 import com.payment.balance_service.model.Balance;
 import com.payment.balance_service.repository.BalanceRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,28 @@ public class BalanceService {
         balance.setBalance(BigDecimal.ZERO);
         balance.setLastUpdated(LocalDateTime.now());
         return balanceRepository.save(balance);
+    }
+
+    @Transactional
+    public void debit(Long accountId, BigDecimal amount) {
+        Balance balance = balanceRepository.findByAccountId(accountId)
+                .orElseThrow(() -> new RuntimeException("Account not found"));
+
+        if (balance.getBalance().compareTo(amount) < 0) {
+            throw new RuntimeException("Insufficient funds");
+        }
+
+        balance.setBalance(balance.getBalance().subtract(amount));
+        balanceRepository.save(balance);
+    }
+
+    @Transactional
+    public void credit(Long accountId, BigDecimal amount) {
+        Balance balance = balanceRepository.findByAccountId(accountId)
+                .orElseThrow(() -> new RuntimeException("Account not found"));
+
+        balance.setBalance(balance.getBalance().add(amount));
+        balanceRepository.save(balance);
     }
 }
 

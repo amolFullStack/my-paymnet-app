@@ -1,3 +1,4 @@
+/*
 package com.payment.transaction_service.client;
 
 import feign.RequestInterceptor;
@@ -25,3 +26,4 @@ public class FeignClientInterceptor implements RequestInterceptor {
     }
 }
 
+*/

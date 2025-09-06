@@ -27,4 +27,14 @@ public class BalanceController {
     public void initializeBalance(@RequestParam("accountId") Long accountId) {
         Balance balance = balanceService.initiateBalance(accountId);
     }
+
+    @PostMapping("/debit")
+    public void debit(@RequestParam Long accountId, @RequestParam BigDecimal amount) {
+        balanceService.debit(accountId, amount);
+    }
+
+    @PostMapping("/credit")
+    public void credit(@RequestParam Long accountId, @RequestParam BigDecimal amount) {
+        balanceService.credit(accountId, amount);
+    }
 }
