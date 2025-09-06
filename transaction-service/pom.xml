@@ -19,7 +19,6 @@
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
         <!--Common imported modules -->
         <dependency><groupId>com.payment</groupId><artifactId>common-model</artifactId><version>${project.version}</version></dependency>
-        <dependency><groupId>com.payment</groupId><artifactId>common-security</artifactId><version>${project.version}</version></dependency>
         <!--Feign-client-->
         <dependency><groupId>org.springframework.cloud</groupId><artifactId>spring-cloud-starter-openfeign</artifactId></dependency>
         <!--Database  & migration Liquibase-->
